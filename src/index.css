@@ -1,0 +1,581 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Asegura que html y body ocupen toda la altura */
+  background-color: #0A1F2D;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  background-color: #0A1F2D;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: #E0EFFF;
+  filter: drop-shadow(0 1px 2px rgba(20, 232, 194, 0.7));
+  margin: -1%;
+}
+
+p {
+  color: #A0B2C0;
+  margin-top: 2%;
+}
+
+.parentDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Distribuye el espacio entre los elementos */
+  width: 100%;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+  gap: 1em;
+}
+
+.primary-button {
+  background-color: #00D4FF;
+  width: 120px;
+  height: 40px;
+  border-radius: 8px;
+  border-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(20, 232, 194, 0.7) 0px 0px 10px 0px;
+  transition: transform 0.2s ease-in-out, background-color .3s ease-in-out;
+
+  &:hover {
+    background-color: #14E8C2;
+    cursor: pointer;
+    transform: scale(1.1);    
+  }
+}
+
+.secondary-button {
+  background-color: #1E2A36;
+  width: 120px;
+  height: 40px;
+  border-radius: 8px;
+  border-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(20, 232, 194, 0.7) 0px 0px 10px 0px;
+  transition: transform 0.2s ease-in-out, background-color .3s ease-in-out;
+
+  &:hover {
+    background-color: #14E8C2;
+    cursor: pointer;
+    transform: scale(1.1);    
+  }
+}
+
+.logo {
+  filter: drop-shadow(0 0 10px rgba(20, 232, 194, 0.7));
+  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);   
+    filter: drop-shadow(0 0 20px rgba(20, 232, 194, 0.7));
+  }
+}
+
+/* Clase específica para el logo en Login y Register */
+.auth-logo {
+  width: 250px;
+  height: 250px;
+  margin-bottom: 2%;
+}
+
+/* Contenedor principal */
+.home-container {
+  margin: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Contenedor tipo grid */
+.grid-container-home {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5em;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 2em;
+}
+
+/* Estilo general de las tarjetas */
+.card {
+  background-color: #1E2A36;
+  border: 1px solid #14E8C2;
+  border-radius: 15px;
+  padding: 1.5em;
+  text-align: center;
+  color: #A0B2C0;
+  box-shadow: rgba(20, 232, 194, 0.7) 0px 0px 10px 0px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Título de cada tarjeta */
+.card h2 {
+  font-size: 1.25em;
+  margin-bottom: 1.5em;
+  color: #E0EFFF;
+}
+
+/* Estilo del pie chart y gráficas de barras (solo placeholder) */
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5em;
+  height: 150px;
+}
+
+.chart-pie {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #ff6f61 0% 40%,
+    #ffc107 40% 70%,
+    #4caf50 70% 100%
+  );
+}
+
+.chart-bar {
+  width: 80%;
+  height: 150px;
+  background: repeating-linear-gradient(
+    to right,
+    #00d4ff,
+    #00d4ff 30px,
+    #ffcc00 30px,
+    #ffcc00 60px
+  );
+}
+
+/* Lista de hábitos */
+.card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items from the start */
+  margin: 0;
+  padding: 0;
+}
+
+.card ul li {
+  color: #a0b2c0;
+  margin: 0.5em 0;
+  width: 100%; /* Ensure the list item takes full width */
+  word-wrap: break-word; /* Break long words to the next line */
+  display: flex;
+  align-items: flex-start; /* Align items at the start */
+}
+
+.card ul li input[type="checkbox"] {
+  margin-right: 0.5em; /* Space between checkbox and text */
+  align-self: flex-start; /* Align checkbox at the start */
+}
+
+/* Contenedor general del checkbox */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5em; /* Espaciado entre la checkbox y la etiqueta */
+  margin: 1em 0;
+}
+
+/* Checkbox base */
+.custom-checkbox {
+  appearance: none; /* Oculta el checkbox nativo */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  
+  cursor: pointer; /* Cambia el cursor a mano */
+  width: 24px; /* Aumenta el tamaño para mejor visibilidad */
+  height: 24px;
+  border: 2px solid #A0B2C0;
+  border-radius: 5px; /* Bordes ligeramente redondeados */
+  background-color: transparent;
+  position: relative; /* Se utiliza para posicionar el checkmark */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Efecto de hover */
+.custom-checkbox:hover {
+  border-color: #00D4FF;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.5); /* Brillo suave */
+}
+
+/* Estado checked */
+.custom-checkbox:checked {
+  background-color: #00D4FF; /* Fondo azul brillante */
+  border-color: #14E8C2; /* Cambio en el borde */
+  box-shadow: 0 0 10px rgba(20, 232, 194, 0.7); /* Efecto glow */
+}
+
+/* Checkmark centrado */
+.custom-checkbox:checked::after {
+  content: ''; /* Añade un pseudo-elemento */
+  position: absolute;
+  top: 40%; /* Centrado vertical */
+  left: 50%; /* Centrado horizontal */
+  transform: translate(-50%, -50%) rotate(45deg); /* Ajuste para el centro */
+  width: 6px; /* Ancho de la línea del check */
+  height: 12px; /* Altura del check */
+  border: solid #0A1F2D; /* Color del checkmark */
+  border-width: 0 2px 2px 0; /* Dibujar solo las líneas necesarias */
+}
+
+/* Etiqueta del checkbox */
+.custom-label {
+  font-size: 1em;
+  color: #A0B2C0;
+  transition: color 0.3s ease;
+}
+
+/* Hover para la etiqueta */
+.checkbox-container:hover .custom-label {
+  color: #E0EFFF; /* Cambia a un blanco claro */
+}
+
+/* KebabButton Styles */
+.kebab-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.kebab-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-dropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: #1E2A36;
+  border: 1px solid #14E8C2;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(20, 232, 194, 0.7); /* Efecto glow */
+  width: 120px;
+  z-index: 10;
+}
+
+.menu-item {
+  width: 100%;
+  color: #E0EFFF;
+  padding: 10px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: block;
+}
+
+.menu-item:hover {
+  background: #00D4FF;
+  color: #000000;
+}
+
+.delete {
+  color: red;
+}
+
+/* DropdownButton*/
+
+.dropdown {
+  position: relative;
+  background-color: none;
+  display: inline-block;
+}
+
+.dropdown-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.arrow {
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  background-color: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-menu li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f0f0f0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.habits-header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  gap: 1.5em;
+  margin-top: 2%;
+
+  && h1 {
+    color: #E0EFFF;
+    font-size: 2em;
+  }
+}
+
+.habits-header-container button {
+  width: 5%;
+  height: 2.5em;
+  color: #E0EFFF;
+}
+
+.habits-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.habits-page-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+}
+
+.habits-page-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #A0B2C0;
+  padding: 8px 0;
+}
+
+.habits-page-list p {
+  margin: 0;
+  flex-grow: 1;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1%;
+  top: 0;
+  gap: 1em;
+  width: 100%;
+  max-width: 400px;
+}
+
+.input-field {
+  width: 70%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #A0B2C0;
+  background-color: transparent;
+  color: #E0EFFF;
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+
+  &:focus {
+    border-color: #00D4FF;
+  }
+}
+
+.input-field::placeholder {
+  color: #A0B2C0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 1em;
+  background-color: #1E2A36;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.navbar-logo h1 {
+  color: #E0EFFF;
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li a {
+  color: #E0EFFF;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  filter: drop-shadow(0 0 3px rgba(20, 232, 194, 0.7));
+
+}
+
+.navbar-links li a:hover {
+  color: #00D4FF;
+}
+
+.navbar-toggle {
+  display: none;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  color: #E0EFFF;
+  cursor: pointer;
+}
+
+.navbar-mobile-menu {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #0A1F2D;
+  padding: 1em 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-mobile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-mobile-menu li {
+  padding: 0.5em 1em;
+  text-align: center;
+}
+
+.navbar-mobile-menu li a {
+  color: #E0EFFF;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-mobile-menu li a:hover {
+  color: #00D4FF;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+}
+
+.footer {
+  font-size: .9em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
