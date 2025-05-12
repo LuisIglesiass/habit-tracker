@@ -1,17 +1,17 @@
 import React from 'react';
-import { Bar } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip, Legend, ChartOptions } from 'chart.js';
+import { Line } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, ChartOptions } from 'chart.js';
 import { HabitsContext } from "../context/HabitsContext";
 import { useContext } from 'react';
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend);
 
-const BarChart: React.FC = () => {
-  const defaultOptions: ChartOptions<'bar'> = {
+const LineChart: React.FC = () => {
+  const defaultOptions: ChartOptions<'line'> = {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top',
+        position: 'bottom',
         labels: {
           color: '#E0EFFF',
         },
@@ -51,16 +51,18 @@ const BarChart: React.FC = () => {
     labels: ['Completadas', 'Incompletas'],
     datasets: [
       {
-        label: 'Diary Habits',
+        label: 'Hábitos diarios',
         data: [completedHabits.length, incompleteHabits.length],
         backgroundColor: ['#4CAF50', '#FF4B5C'],
-        borderColor: ['#14E8C2', '#14E8C2'],
-        borderWidth: 1,
+        borderColor: '#14E8C2',
+        borderWidth: 2,
+        pointBackgroundColor: '#00D4FF',
+        pointBorderColor: '#E0EFFF',
       },
     ],
   };
 
-  return <Bar data={data} options={defaultOptions} />;
+  return <Line data={data} options={defaultOptions} />;
 };
 
-export default BarChart;
+export default LineChart;
