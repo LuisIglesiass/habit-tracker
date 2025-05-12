@@ -28,13 +28,18 @@ body {
   .weekly-recap {
     grid-column: 2 / 4; /* Ocupa 2 columnas */
     display: flex;
+    justify-content: center;
+    align-content: center;
   }
   
   .pie-chart, .line-chart {
     width: 40%; /* Cada gráfico ocupa la mitad del ancho */
     height: 200px; /* Ajusta la altura según sea necesario */
-    border: 1px solid #14E8C2;
     border-radius: 8px;
+  }
+
+  .line-chart {
+    width: 50%;
   }
   
   .progress-resume ul, .habits-to-improve ul {

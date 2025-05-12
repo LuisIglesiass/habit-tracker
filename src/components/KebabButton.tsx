@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { MoreVertical } from "lucide-react";
+import { HabitsContext } from "../context/HabitsContext";
 
-// interface KebabButtonProps {
-// //   onEdit: () => void;
-// //   onDelete: () => void;
-// }
+interface KebabButtonProps {
+  habitId: number;
+  habitName: string;
+  onEdit: () => void;
+}
 
-// export default function KebabButton({ onEdit, onDelete }: any) {
-
-
-export default function KebabButton() {
+export default function KebabButton({ habitId, habitName, onEdit }: KebabButtonProps) {
   const [open, setOpen] = useState(false);
+  const habitsContext = useContext(HabitsContext);
+  if (!habitsContext) {
+    return <div>Error: HabitsContext is undefined</div>;
+  } 
+  const { removeHabit } = habitsContext;
 
   return (
     <div className="kebab-menu">
@@ -22,7 +26,7 @@ export default function KebabButton() {
           <button
             onClick={() => {
               setOpen(false);
-            //   onEdit();
+              onEdit();
             }}
             className="menu-item"
           >
@@ -31,16 +35,7 @@ export default function KebabButton() {
           <button
             onClick={() => {
               setOpen(false);
-            //   onFrecuency();
-            }}
-            className="menu-item"
-          >
-            Frequency
-          </button>
-          <button
-            onClick={() => {
-              setOpen(false);
-            //   onDelete();
+              removeHabit(habitId);
             }}
             className="menu-item delete"
           >

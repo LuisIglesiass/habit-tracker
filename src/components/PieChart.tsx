@@ -1,53 +1,48 @@
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, ChartOptions } from 'chart.js';
+import { HabitsContext } from "../context/HabitsContext";
+import { useContext } from 'react';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const options: ChartOptions<'pie'> = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top', // Use one of the allowed string literals
-      labels: {
-        color: '#000',
+const PieChart: React.FC = () => {
+  const defaultOptions: ChartOptions<'pie'> = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          color: '#E0EFFF',
+        },
+      },
+      tooltip: {
+        enabled: true,
       },
     },
-    tooltip: {
-      enabled: true,
-    },
-  },
-};
+  };
 
-const data = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
+  const habitsContext = useContext(HabitsContext);
+  if (!habitsContext) {
+    return <div>Error: HabitsContext is undefined</div>;
+  }
 
-const PieChart: React.FC = () => {
-  return <Pie data={data} options={options} />;
+  const { completedHabits, incompleteHabits } = habitsContext;
+
+  const data = {
+    labels: ['Completadas', 'Incompletas'],
+    datasets: [
+      {
+        label: 'Hábitos diarios',
+        data: [completedHabits.length, incompleteHabits.length],
+        backgroundColor: ['#4CAF50', 'red'],
+        borderColor: ['#14E8C2', '#14E8C2'],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  return <Pie data={data} options={defaultOptions} />;
 };
 
 export default PieChart;
