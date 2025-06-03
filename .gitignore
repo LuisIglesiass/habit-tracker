@@ -11,7 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
-db/database.db 
+db/habit-tracker.db 
+db/habit-tracker.sqbpro
 .env
 
 # Editor directories and files
