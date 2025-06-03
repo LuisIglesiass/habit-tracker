@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
 import RedirectButton from "../components/RedirectButton";
-import "../Home.css";
+import "./Home.css";
 import axios from "axios";
 
 const Home: React.FC = () => {
