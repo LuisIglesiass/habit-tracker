@@ -1,28 +1,68 @@
-import React, { useContext, useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
 import KebabButton from "../components/KebabButton";
-import { HabitsContext } from "../context/HabitsContext";
+import axios from 'axios';
+
+interface Habit {
+    id: number;
+    name: string;
+}
 
 const Habits: React.FC = () => {
     const [habit, setHabit] = useState('');
     const [isEditing, setIsEditing] = useState(false);
     const [editingHabitId, setEditingHabitId] = useState<number | null>(null);
-    const habitsContext = useContext(HabitsContext);
-    if (!habitsContext) {
-        return <div>Error: HabitsContext is undefined</div>;
-    }
-    const { habits, addHabit, editHabit } = habitsContext;
+    const [habits, setHabits] = useState<Habit[]>([]);
 
-    const saveHabit = () => {
+    const userId = localStorage.getItem('userId');
+
+    useEffect(() => {
+        const fetchHabits = async () => {
+            if (userId) {
+                try {
+                    const response = await axios.get(`http://localhost:3000/api/habits/${userId}`);
+                    setHabits(response.data);
+                } catch (error) {
+                    console.error("Error while fetching habits:", error);
+                }
+            }
+        };
+        fetchHabits();
+    }, [userId]);
+
+    const saveHabit = async () => {
         if (editingHabitId !== null) {
-            editHabit(editingHabitId, habit);
+            await axios.put(`http://localhost:3000/api/habits/edit/${editingHabitId}`, { 
+                user_id: userId,
+                name: habit 
+            });
             setEditingHabitId(null);
         } else {
-            addHabit(habit);
+            const response = await axios.post(`http://localhost:3000/api/habits`, { 
+                user_id: userId,
+                name: habit,
+            });
+            console.log(response.data);
         }
         setHabit('');
         setIsEditing(false);
+        if (userId) {
+            const response = await axios.get(`http://localhost:3000/api/habits/${userId}`);
+            setHabits(response.data);
+        }
+    };
+
+    const deleteHabit = async (id: number) => {
+        try {
+            await axios.delete(`http://localhost:3000/api/habits/remove/${id}`);
+            if (userId) {
+                const response = await axios.get(`http://localhost:3000/api/habits/${userId}`);
+                setHabits(response.data);
+            }
+        } catch (error) {
+            console.error("Error while deleting habit:", error);
+        }
     };
 
     return (
@@ -52,11 +92,11 @@ const Habits: React.FC = () => {
                                 ) : (
                                     <>
                                         <p>{habitItem.name}</p>
-                                        <KebabButton habitId={habitItem.id} habitName={habitItem.name} onEdit={() => {
+                                        <KebabButton habitId={habitItem.id} onEdit={() => {
                                             setEditingHabitId(habitItem.id);
                                             setHabit(habitItem.name);
                                             setIsEditing(true);
-                                        }} />
+                                        }} onDelete={() => deleteHabit(habitItem.id)} />
                                     </>
                                 )}
                             </li>

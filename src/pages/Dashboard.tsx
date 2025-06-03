@@ -5,7 +5,6 @@ import ProgressResume from '../components/ProgressResume';
 import WeeklyRecap from '../components/WeeklyRecap';
 import ActualProgress from '../components/ActualProgress';
 import AddHabits from '../components/AddHabits';
-import HabitsToImprove from '../components/HabitsToImprove';
 import '../Dashboard.css';
 
 const Dashboard = () => {
@@ -24,7 +23,6 @@ const Dashboard = () => {
           <WeeklyRecap />
           <ActualProgress />
           <AddHabits />
-          <HabitsToImprove />
         </div>
       </main>
       <Footer />

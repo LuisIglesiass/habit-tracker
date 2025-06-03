@@ -1,92 +1,102 @@
-/* Dashboard.css - Modo Oscuro */
+/* Dashboard.css - Dark Mode */
 body {
-    background-color: #0A1F2D;
-    color: #E0EFFF;
-  }
-  
-  .dashboard-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
-    gap: 20px;
-  }
-  
-  .progress-resume, .weekly-recap, .actual-progress, .add-habits, .habits-to-improve {
-    background-color: #1E2A36;
-    border: 1px solid #14E8C2;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .weekly-recap {
-    grid-column: 2 / 4; /* Ocupa 2 columnas */
-    display: flex;
-    justify-content: center;
-    align-content: center;
-  }
-  
-  .pie-chart, .line-chart {
-    width: 40%; /* Cada gráfico ocupa la mitad del ancho */
-    height: 200px; /* Ajusta la altura según sea necesario */
-    border-radius: 8px;
-  }
+  background-color: #0a1f2d;
+  color: #e0efff;
+}
 
-  .line-chart {
-    width: 50%;
-  }
-  
-  .progress-resume ul, .habits-to-improve ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .progress-resume li, .habits-to-improve li {
-    margin-bottom: 10px;
-  }
-  
-  .progress-bar {
-    width: 100%;
-    height: 20px;
-    background-color: #334756;
-    border-radius: 10px;
-    margin-top: 10px;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .progress-bar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: var(--progress);
-    background-color: #00D4FF;
-    border-radius: 10px;
-  }
-  
-  .add-habits button, .habits-to-improve button {
-    background-color: #1E2A36;
-    color: #E0EFFF;
-    border: 1px solid #14E8C2;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .add-habits button:hover, .habits-to-improve button:hover {
-    background-color: #14E8C2;
-    color: #0A1F2D;
-  }
-  
-  .habits-to-improve button {
-    margin-left: 10px;
-  }
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+  gap: 20px;
+}
+
+.progress-resume,
+.weekly-recap,
+.actual-progress,
+.add-habits,
+.habits-to-improve {
+  background-color: #1e2a36;
+  border: 1px solid #14e8c2;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.weekly-recap {
+  grid-column: 2 / 2; /* Occupies 2 columns */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.pie-chart,
+.line-chart {
+  width: 40%; /* Each chart occupies half the width */
+  height: 200px; /* Adjust height as needed */
+  border-radius: 8px;
+}
+
+.line-chart {
+  width: 90%;
+}
+
+.progress-resume ul,
+.habits-to-improve ul {
+  list-style: none;
+  padding: 0;
+}
+
+.progress-resume li,
+.habits-to-improve li {
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #334756;
+  border-radius: 10px;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--progress);
+  background-color: #00d4ff;
+  border-radius: 10px;
+}
+
+.add-habits button,
+.habits-to-improve button {
+  background-color: #1e2a36;
+  color: #e0efff;
+  border: 1px solid #14e8c2;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.add-habits button:hover,
+.habits-to-improve button:hover {
+  background-color: #14e8c2;
+  color: #0a1f2d;
+}
+
+.habits-to-improve button {
+  margin-left: 10px;
+}

@@ -1,66 +1,62 @@
-# Habit Tracker
+# 🧠 Habit Tracker
 
-## 📌 Project Overview
-The **Habit Tracker** is a web application designed to help users build and maintain positive habits. Users can add, track, and visualize their habit progress through an interactive and user-friendly interface. The project is built with **React.js** and utilizes a simple database for persistent storage.
-
-## 🛠 Tech Stack
-- **Frontend:** React.js, Tailwind CSS
-- **Backend:** Firebase Firestore / Express.js with MongoDB
-- **State Management:** React Context API (optional)
-- **Charts & Data Visualization:** Chart.js / Recharts
+A simple yet powerful habit-tracking web application built with Node.js, Express, and SQLite. Track your daily habits, stay consistent, and build a better you.
 
 ## 🚀 Features
-✅ User-friendly interface for adding and managing habits  
-✅ Mark habits as completed daily, weekly, or monthly  
-✅ Store and sync data using a database  
-✅ View habit history and progress statistics  
-✅ Dark mode support  
-✅ Optional: Notifications and reminders  
 
-## 📂 Project Structure
+- Add, view, and delete personal habits
+- Track completion status for each day
+- Clean, responsive user interface
+- Lightweight and fast — powered by SQLite
+
+## 🛠️ Tech Stack
+
+- **Backend**: Node.js, Express
+- **Frontend**: HTML, CSS, JavaScript, EJS
+- **Database**: SQLite
+
+## ⚙️ Installation
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/LuisIglesiass/habit-tracker.git
+cd habit-tracker
 ```
-├── src
-│   ├── components     # Reusable components
-│   ├── pages          # Main application pages
-│   ├── context        # Context API (optional)
-│   ├── services       # Database interaction functions
-│   ├── assets         # Static images and icons
-│   ├── App.js         # Main application component
-│   ├── index.js       # Entry point
-│   └── styles.css     # Global styles
+
+2. **Install dependencies**
+
+```bash
+npm install
 ```
 
-## 🛠 Installation & Setup
-1. **Clone the repository:**  
-   ```bash
-   git clone https://github.com/your-username/habit-tracker.git
-   cd habit-tracker
-   ```
+3. **Set up environment variables**
 
-2. **Install dependencies:**  
-   ```bash
-   npm install
-   ```
+Create a .env file and set the following:
+```bash
+PORT=3000
+```
 
-3. **Run the development server:**  
-   ```bash
-   npm run dev
-   ```
+4. **Initialize the database**
 
-4. **Set up the database:**  
-   - For Firebase: Add your Firebase configuration in `services/firebase.js`
-   - For MongoDB: Set up an Express.js backend and configure database connections
+The SQLite database will be created automatically on the first run if it doesn’t exist.
+To start fresh manually:
 
-5. **Enjoy tracking your habits!** 🎯
+```bash
+rm -rf db/database.db
+npm start
+```
 
-## 📌 Future Improvements
-- User authentication (Sign-up/Login)
-- Customizable habit categories and streaks
-- AI-based habit recommendations
+5. **Run the application**
+```bash
+rm -rf db/database.db
+npm start
+```
 
-## 🤝 Contributing
-Feel free to fork this repository and submit pull requests with improvements or bug fixes!
+## 🧾 License
 
-## 📜 License
-This project is licensed under the **MIT License**.
+This project is open source and available under the MIT License.
 
+## ✨ Author
+
+Developed by Luis Iglesias

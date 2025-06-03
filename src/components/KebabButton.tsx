@@ -4,11 +4,11 @@ import { HabitsContext } from "../context/HabitsContext";
 
 interface KebabButtonProps {
   habitId: number;
-  habitName: string;
   onEdit: () => void;
+  onDelete: () => Promise<void>;
 }
 
-export default function KebabButton({ habitId, habitName, onEdit }: KebabButtonProps) {
+export default function KebabButton({ habitId, onEdit, onDelete }: KebabButtonProps) {
   const [open, setOpen] = useState(false);
   const habitsContext = useContext(HabitsContext);
   if (!habitsContext) {
@@ -36,6 +36,7 @@ export default function KebabButton({ habitId, habitName, onEdit }: KebabButtonP
             onClick={() => {
               setOpen(false);
               removeHabit(habitId);
+              onDelete();
             }}
             className="menu-item delete"
           >

@@ -21,12 +21,17 @@
     "@mui/icons-material": "^5.16.14",
     "@mui/material": "^5.16.14",
     "@types/chart.js": "^2.9.41",
+    "axios": "^1.9.0",
+    "bcrypt": "^6.0.0",
     "chart.js": "^4.4.8",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
     "lucide-react": "^0.476.0",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.3.0",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.30.0"
+    "react-router-dom": "^6.30.0",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
@@ -63,5 +68,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "## 📌 Project Overview The **Habit Tracker** is a web application designed to help users build and maintain positive habits. Users can add, track, and visualize their habit progress through an interactive and user-friendly interface. The project is built with **React.js** and utilizes a simple database for persistent storage.",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

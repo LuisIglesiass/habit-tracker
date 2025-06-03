@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -17,14 +17,15 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%; /* Asegura que html y body ocupen toda la altura */
-  background-color: #0A1F2D;
+  height: 100%; /* Ensures html and body occupy full height */
+  background-color: #0a1f2d;
 }
 
 a {
@@ -37,19 +38,19 @@ a:hover {
 }
 
 body {
-  background-color: #0A1F2D;
+  background-color: #0a1f2d;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  color: #E0EFFF;
+  color: #e0efff;
   filter: drop-shadow(0 1px 2px rgba(20, 232, 194, 0.7));
   margin: -1%;
 }
 
 p {
-  color: #A0B2C0;
+  color: #a0b2c0;
   margin-top: 2%;
 }
 
@@ -57,9 +58,9 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Distribuye el espacio entre los elementos */
+  justify-content: center; /* Distributes space between elements */
   width: 100%;
-  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  height: 100vh; /* Occupies full height of the screen */
 }
 
 .button-container {
@@ -70,26 +71,27 @@ p {
 }
 
 .primary-button {
-  background-color: #00D4FF;
+  background-color: #00d4ff;
   width: 120px;
   height: 40px;
+  color: #000000;
   border-radius: 8px;
   border-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: rgba(20, 232, 194, 0.7) 0px 0px 10px 0px;
-  transition: transform 0.2s ease-in-out, background-color .3s ease-in-out;
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
 
   &:hover {
-    background-color: #14E8C2;
+    background-color: #14e8c2;
     cursor: pointer;
-    transform: scale(1.1);    
+    transform: scale(1.1);
   }
 }
 
 .secondary-button {
-  background-color: #1E2A36;
+  background-color: #1e2a36;
   width: 120px;
   height: 40px;
   border-radius: 8px;
@@ -98,12 +100,33 @@ p {
   justify-content: center;
   align-items: center;
   box-shadow: rgba(20, 232, 194, 0.7) 0px 0px 10px 0px;
-  transition: transform 0.2s ease-in-out, background-color .3s ease-in-out;
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
 
   &:hover {
-    background-color: #14E8C2;
+    background-color: #14e8c2;
     cursor: pointer;
-    transform: scale(1.1);    
+    transform: scale(1.1);
+  }
+}
+
+.logout-button {
+  background-color: #f46363;
+  width: 100px;
+  font-weight: 600;
+  color: #000000;
+  height: 30px;
+  border-radius: 8px;
+  border-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(255, 0, 0, 0.7) 0px 0px 10px 0px;
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #e97b7b;
+    cursor: pointer;
+    transform: scale(1.1);
   }
 }
 
@@ -112,19 +135,19 @@ p {
   transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
 
   &:hover {
-    transform: scale(1.1);   
+    transform: scale(1.1);
     filter: drop-shadow(0 0 20px rgba(20, 232, 194, 0.7));
   }
 }
 
-/* Clase específica para el logo en Login y Register */
+/* Specific class for the logo in Login and Register */
 .auth-logo {
   width: 250px;
   height: 250px;
   margin-bottom: 2%;
 }
 
-/* Contenedor principal */
+/* Main container */
 .home-container {
   margin: 2em;
   display: flex;
@@ -132,7 +155,7 @@ p {
   align-items: center;
 }
 
-/* Contenedor tipo grid */
+/* Grid container */
 .grid-container-home {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -142,14 +165,15 @@ p {
   margin-bottom: 2em;
 }
 
-/* Estilo general de las tarjetas */
+/* General style for cards */
 .card {
-  background-color: #1E2A36;
-  border: 1px solid #14E8C2;
+  background-color: #1e2a36;
+  border: 1px solid #14e8c2;
   border-radius: 15px;
   padding: 1.5em;
   text-align: center;
-  color: #A0B2C0;
+  color: #a0b2c0;
+  height: 100%;
   box-shadow: rgba(20, 232, 194, 0.7) 0px 0px 10px 0px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -159,14 +183,14 @@ p {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
-/* Título de cada tarjeta */
+/* Title of each card */
 .card h2 {
   font-size: 1.25em;
   margin-bottom: 1.5em;
-  color: #E0EFFF;
+  color: #e0efff;
 }
 
-/* Estilo del pie chart y gráficas de barras (solo placeholder) */
+/* Style for pie chart and bar graphs (placeholder only) */
 .chart-container {
   display: flex;
   justify-content: center;
@@ -179,11 +203,7 @@ p {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: conic-gradient(
-    #ff6f61 0% 40%,
-    #ffc107 40% 70%,
-    #4caf50 70% 100%
-  );
+  background: conic-gradient(#ff6f61 0% 40%, #ffc107 40% 70%, #4caf50 70% 100%);
 }
 
 .chart-bar {
@@ -198,7 +218,7 @@ p {
   );
 }
 
-/* Lista de hábitos */
+/* Habit list */
 .card ul {
   list-style: none;
   display: flex;
@@ -222,66 +242,66 @@ p {
   align-self: flex-start; /* Align checkbox at the start */
 }
 
-/* Contenedor general del checkbox */
+/* General container for checkbox */
 .checkbox-container {
   display: flex;
   align-items: center;
-  gap: 0.5em; /* Espaciado entre la checkbox y la etiqueta */
+  gap: 0.5em; /* Spacing between checkbox and label */
   margin: 1em 0;
 }
 
-/* Checkbox base */
+/* Base checkbox */
 .custom-checkbox {
-  appearance: none; /* Oculta el checkbox nativo */
+  appearance: none; /* Hide native checkbox */
   -webkit-appearance: none;
   -moz-appearance: none;
-  
-  cursor: pointer; /* Cambia el cursor a mano */
-  width: 24px; /* Aumenta el tamaño para mejor visibilidad */
+
+  cursor: pointer; /* Change cursor to pointer */
+  width: 24px; /* Increase size for better visibility */
   height: 24px;
-  border: 2px solid #A0B2C0;
-  border-radius: 5px; /* Bordes ligeramente redondeados */
+  border: 2px solid #a0b2c0;
+  border-radius: 5px; /* Slightly rounded edges */
   background-color: transparent;
-  position: relative; /* Se utiliza para posicionar el checkmark */
+  position: relative; /* Used to position the checkmark */
   transition: all 0.3s ease-in-out;
 }
 
-/* Efecto de hover */
+/* Hover effect */
 .custom-checkbox:hover {
-  border-color: #00D4FF;
-  box-shadow: 0 0 8px rgba(0, 212, 255, 0.5); /* Brillo suave */
+  border-color: #00d4ff;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.5); /* Soft glow */
 }
 
-/* Estado checked */
+/* Checked state */
 .custom-checkbox:checked {
-  background-color: #00D4FF; /* Fondo azul brillante */
-  border-color: #14E8C2; /* Cambio en el borde */
-  box-shadow: 0 0 10px rgba(20, 232, 194, 0.7); /* Efecto glow */
+  background-color: #00d4ff; /* Bright blue background */
+  border-color: #14e8c2; /* Change border color */
+  box-shadow: 0 0 10px rgba(20, 232, 194, 0.7); /* Glow effect */
 }
 
-/* Checkmark centrado */
+/* Centered checkmark */
 .custom-checkbox:checked::after {
-  content: ''; /* Añade un pseudo-elemento */
+  content: ""; /* Add a pseudo-element */
   position: absolute;
-  top: 40%; /* Centrado vertical */
-  left: 50%; /* Centrado horizontal */
-  transform: translate(-50%, -50%) rotate(45deg); /* Ajuste para el centro */
-  width: 6px; /* Ancho de la línea del check */
-  height: 12px; /* Altura del check */
-  border: solid #0A1F2D; /* Color del checkmark */
-  border-width: 0 2px 2px 0; /* Dibujar solo las líneas necesarias */
+  top: 40%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%) rotate(45deg); /* Adjust for center */
+  width: 6px; /* Width of the check line */
+  height: 12px; /* Height of the check */
+  border: solid #0a1f2d; /* Checkmark color */
+  border-width: 0 2px 2px 0; /* Draw only necessary lines */
 }
 
-/* Etiqueta del checkbox */
+/* Checkbox label */
 .custom-label {
   font-size: 1em;
-  color: #A0B2C0;
+  color: #a0b2c0;
   transition: color 0.3s ease;
 }
 
-/* Hover para la etiqueta */
+/* Hover for label */
 .checkbox-container:hover .custom-label {
-  color: #E0EFFF; /* Cambia a un blanco claro */
+  color: #e0efff; /* Change to light white */
 }
 
 /* KebabButton Styles */
@@ -306,17 +326,17 @@ p {
   position: absolute;
   right: 0;
   top: 100%;
-  background: #1E2A36;
-  border: 1px solid #14E8C2;
+  background: #1e2a36;
+  border: 1px solid #14e8c2;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(20, 232, 194, 0.7); /* Efecto glow */
+  box-shadow: 0 0 10px rgba(20, 232, 194, 0.7); /* Glow effect */
   width: 120px;
   z-index: 10;
 }
 
 .menu-item {
   width: 100%;
-  color: #E0EFFF;
+  color: #e0efff;
   padding: 10px;
   text-align: left;
   background: none;
@@ -326,7 +346,7 @@ p {
 }
 
 .menu-item:hover {
-  background: #00D4FF;
+  background: #00d4ff;
   color: #000000;
 }
 
@@ -334,7 +354,7 @@ p {
   color: red;
 }
 
-/* DropdownButton*/
+/* DropdownButton */
 
 .dropdown {
   position: relative;
@@ -391,11 +411,14 @@ header {
   align-items: center;
   width: 100%;
   justify-content: center;
-  gap: 1.5em;
+  margin: 0 auto;
+
+  margin-left: 2%;
+  gap: 2.5em;
   margin-top: 2%;
 
   && h1 {
-    color: #E0EFFF;
+    color: #e0efff;
     font-size: 2em;
   }
 }
@@ -403,7 +426,7 @@ header {
 .habits-header-container button {
   width: 5%;
   height: 2.5em;
-  color: #E0EFFF;
+  color: #e0efff;
 }
 
 .habits-page-container {
@@ -424,7 +447,7 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 300px;
-  border-bottom: 1px solid #A0B2C0;
+  border-bottom: 1px solid #a0b2c0;
   padding: 8px 0;
 }
 
@@ -443,9 +466,9 @@ header {
 .new-habit-form input,
 .new-habit-form select,
 .new-habit-form button {
-  background-color: #1E2A36;
-  color: #E0EFFF;
-  border: 1px solid #14E8C2;
+  background-color: #1e2a36;
+  color: #e0efff;
+  border: 1px solid #14e8c2;
   padding: 10px 15px;
   border-radius: 5px;
   font-size: 16px;
@@ -454,19 +477,19 @@ header {
 
 .new-habit-form input:focus,
 .new-habit-form select:focus {
-  border-color: #00D4FF;
+  border-color: #00d4ff;
   outline: none;
 }
 
 .new-habit-form button {
-  background-color: #00D4FF;
-  color: #0A1F2D;
+  background-color: #00d4ff;
+  color: #0a1f2d;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .new-habit-form button:hover {
-  background-color: #14E8C2;
+  background-color: #14e8c2;
 }
 
 .form-container {
@@ -484,20 +507,20 @@ header {
   width: 70%;
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid #A0B2C0;
+  border: 1px solid #a0b2c0;
   background-color: transparent;
-  color: #E0EFFF;
+  color: #e0efff;
   font-size: 1em;
   outline: none;
   transition: border-color 0.3s ease-in-out;
 
   &:focus {
-    border-color: #00D4FF;
+    border-color: #00d4ff;
   }
 }
 
 .input-field::placeholder {
-  color: #A0B2C0;
+  color: #a0b2c0;
 }
 
 .navbar {
@@ -505,7 +528,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0.5em 1em;
-  background-color: #1E2A36;
+  background-color: #1e2a36;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -516,7 +539,7 @@ header {
 }
 
 .navbar-logo h1 {
-  color: #E0EFFF;
+  color: #e0efff;
   font-size: 1.25em;
   font-weight: 600;
 }
@@ -530,16 +553,15 @@ header {
 }
 
 .navbar-links li a {
-  color: #E0EFFF;
+  color: #e0efff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
   filter: drop-shadow(0 0 3px rgba(20, 232, 194, 0.7));
-
 }
 
 .navbar-links li a:hover {
-  color: #00D4FF;
+  color: #00d4ff;
 }
 
 .navbar-toggle {
@@ -547,7 +569,7 @@ header {
   font-size: 1.5em;
   background: none;
   border: none;
-  color: #E0EFFF;
+  color: #e0efff;
   cursor: pointer;
 }
 
@@ -556,7 +578,7 @@ header {
   top: 60px;
   left: 0;
   width: 100%;
-  background-color: #0A1F2D;
+  background-color: #0a1f2d;
   padding: 1em 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -573,17 +595,17 @@ header {
 }
 
 .navbar-mobile-menu li a {
-  color: #E0EFFF;
+  color: #e0efff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .navbar-mobile-menu li a:hover {
-  color: #00D4FF;
+  color: #00d4ff;
 }
 
-/* Responsividad */
+/* Responsiveness */
 @media (max-width: 768px) {
   .navbar-links {
     display: none;
@@ -595,9 +617,10 @@ header {
 }
 
 .footer {
-  font-size: .9em;
+  font-size: 0.9em;
   position: absolute;
   bottom: 0;
+  margin-bottom: 1%;
   width: 100%;
   height: 60px;
   display: flex;
@@ -615,4 +638,12 @@ header {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }

@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import logo from '/assets/images/logo.png';
+import Button from './Button';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem('userId');
+    window.location.href = '/login';
+  };
 
   return (
     <nav className="navbar">
@@ -13,6 +19,7 @@ const Navbar = () => {
 
       {/* Desktop Menu */}
       <ul className="navbar-links">
+        <li><Button type='button' label='Logout' className='logout-button' onClick={handleLogout}/></li>
         <li><a href="/home">Home</a></li>
         <li><a href="/habits">Habits</a></li>
         <li><a href="/dashboard">Dashboard</a></li>

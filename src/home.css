@@ -1,11 +1,11 @@
-/* Contenedor tipo grid */
+/* Grid container */
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
-    grid-template-rows: repeat(2, 1fr); /* 2 filas iguales */
-    gap: 20px;
-    gap: 1.5em;
-    width: 80%;
-    max-width: 1200px;
-    margin-bottom: 2em;
-  }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  grid-template-rows: repeat(2, 1fr); /* 2 equal rows */
+  gap: 20px;
+  gap: 1.5em;
+  width: 80%;
+  max-width: 1200px;
+  margin-bottom: 2em;
+}

@@ -1,34 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PieChart from './PieChart';
 import BarChart from './BarChart';
-import { HabitsContext } from "../context/HabitsContext";
-import { useContext } from 'react';
+import axios from 'axios';
 
 const WeeklyRecap = () => {
-  const habitsContext = useContext(HabitsContext);
-  const { completedHabits = [], incompleteHabits = [] } = habitsContext || {};
+  const [completedCount, setCompletedCount] = useState<number>(0);
+  const [incompleteCount, setIncompleteCount] = useState<number>(0);
+  const userId = localStorage.getItem('userId');
 
-  const data = {
-    labels: ['Completed', 'Incomplete'],
-    datasets: [
-      {
-        label: 'Daily Habits',
-        data: [completedHabits.length, incompleteHabits.length],
-        backgroundColor: ['#4CAF50', 'red'],
-        borderColor: ['#00000', '#00000'],
-        borderWidth: 1,
-      },
-    ],
-  };
+  useEffect(() => {
+    const fetchHabitCounts = async () => {
+      if (userId) {
+        try {
+          const completedResponse = await axios.get(`http://localhost:3000/api/habits/completed/today/${userId}`);
+          const incompleteResponse = await axios.get(`http://localhost:3000/api/habits/incomplete/today/${userId}`);
+          
+          setCompletedCount(completedResponse.data.length);
+          setIncompleteCount(incompleteResponse.data.length);
+        } catch (error) {
+          console.error("Error while fetching habits:", error);
+        }
+      }
+    };
+
+    fetchHabitCounts();
+  }, [userId]);
 
   return (
     <div className="weekly-recap">
       <div className="pie-chart">
-        <PieChart />
+        <PieChart completedCount={completedCount} incompleteCount={incompleteCount} />
       </div>
       <div className="line-chart">
-        {/* Gráfico de líneas de ejemplo */}
-        <BarChart/>
+        <BarChart />
       </div>
     </div>
   );

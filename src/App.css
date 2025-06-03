@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #0A1F2D;
+  font-family: "Inter", sans-serif;
+  background-color: #0a1f2d;
 }
 
 #root {
@@ -10,21 +10,23 @@ body {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  min-height: 100vh;
 }
 
-.logo {
-  height: 10em;
-  width: 10em;
-  transition: filter 300ms;
+.logo,
+.auth-logo {
+  filter: drop-shadow(0 0 10px rgba(20, 232, 194, 0.7));
+  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-  cursor: pointer;
+.logo:hover,
+.auth-logo:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 20px rgba(20, 232, 194, 0.7));
 }
 
 h1 {
-  color: #E0EFFF;
+  color: #e0efff;
 }
 
 img {
