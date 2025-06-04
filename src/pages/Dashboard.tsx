@@ -5,7 +5,7 @@ import ProgressResume from '../components/ProgressResume';
 import WeeklyRecap from '../components/WeeklyRecap';
 import ActualProgress from '../components/ActualProgress';
 import AddHabits from '../components/AddHabits';
-import './Dashboard.css';
+import '../dashboard.css';
 
 const Dashboard = () => {
   return (
