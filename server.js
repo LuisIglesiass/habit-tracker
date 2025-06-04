@@ -18,8 +18,19 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
+
+const dbPath =
+  process.env.NODE_ENV === "production"
+    ? path.join("/tmp", "habit-tracker.db")
+    : path.join(__dirname, "db", "habit-tracker.db");
 // Connect to SQLite database
-const db = new sqlite3.Database(path.join(__dirname, "db", "habit-tracker.db"));
+const db = new sqlite3.Database(dbPath, (err) => {
+  if (err) {
+    console.error("Error opening database", err.message);
+  } else {
+    console.log(`Connected to database at ${dbPath}`);
+  }
+});
 
 // Create tables if they do not exist
 db.serialize(() => {
