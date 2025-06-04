@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc && vite build",
     "build:css": "npx tailwindcss -i ./src/index.css -o ./dist/output.css --watch",
     "lint": "eslint .",
     "preview": "vite preview",
